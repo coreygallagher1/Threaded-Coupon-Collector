@@ -19,7 +19,8 @@ public class Collector {
 		
 	}
 	
-	protected int drawCoupon() {
+	protected int drawCoupon() { // returns random integer 0-15
+
 		Random rand = new Random();
 		int upperbound = 16;
 		int int_random = rand.nextInt(upperbound);
