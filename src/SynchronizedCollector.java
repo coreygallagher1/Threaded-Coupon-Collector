@@ -17,7 +17,9 @@ public class SynchronizedCollector extends Collector implements Runnable {
 		}
 
 		long duration = System.currentTimeMillis() - startTime;
-		System.out.println("Duration: " + duration);
+		System.out.println("Sum of frequencies: " + sumFreq);
+		System.out.println("Number of threads: " + n);
+		System.out.println("Execution time: " + duration);
 	}
 
 	@Override
