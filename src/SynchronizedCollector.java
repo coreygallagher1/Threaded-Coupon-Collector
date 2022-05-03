@@ -2,7 +2,8 @@ package src;
 
 public class SynchronizedCollector extends Collector implements Runnable {
 	static Thread t[]= new Thread[n];
-
+	Object lock = new Object();
+	
 	public SynchronizedCollector(int trials) {
 		super(trials);
 		//...
@@ -17,15 +18,21 @@ public class SynchronizedCollector extends Collector implements Runnable {
 		}
 
 		long duration = System.currentTimeMillis() - startTime;
-		System.out.println("Sum of frequencies: " + sumFreq);
+		//System.out.println("Sum of frequencies: " + sumFreq);
 		System.out.println("Number of threads: " + n);
 		System.out.println("Execution time: " + duration);
 	}
 
 	@Override
 	public void run() {
-		//...
-		System.out.println("Tax me");
+		int f = 0;
+
+		while(!addcoupon(drawCoupon())) {
+			f++;
+		}
+		synchronized (lock) {
+			freq[f]++;
+		}
 	}
 
 }

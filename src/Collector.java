@@ -7,8 +7,9 @@ public class Collector {
 	protected static final int MAXFREQ = 600;
 	protected static int n = 2;
 	protected static int trials;
-	protected static int sumFreq;
-	
+	protected static int freq[] = new int[MAXFREQ];
+	//protected static int sumFreq;
+
 	// HashMap where the key is the coupon and the value is the number of occurrences
 	private HashMap<Integer, Integer> seenCoupons = new HashMap<>();
 	
