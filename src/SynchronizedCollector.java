@@ -9,9 +9,9 @@ public class SynchronizedCollector extends Collector implements Runnable {
 
 	public static void main(String[] args) {
 		startTime = System.currentTimeMillis();
-		SynchronizedCollector test = new SynchronizedCollector(1000);
 		
-		test.run();
+		Thread testThread = new Thread(new SynchronizedCollector(1000));
+		testThread.start();
 
 		long duration = System.currentTimeMillis() - startTime;
 		System.out.println("Duration: " + duration);
