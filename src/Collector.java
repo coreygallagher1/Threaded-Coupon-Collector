@@ -45,9 +45,4 @@ public class Collector {
 		else
 			return false;
 	}
-
-	public static void main(String[] args) {
-
-	}
-
 }
