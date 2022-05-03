@@ -1,4 +1,4 @@
-package hw11;
+package src;
 
 public class IndependentCollector extends Collector implements Runnable {
 

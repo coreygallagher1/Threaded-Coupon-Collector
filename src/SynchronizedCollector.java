@@ -1,4 +1,4 @@
-package hw11;
+package src;
 
 public class SynchronizedCollector extends Collector implements Runnable {
 

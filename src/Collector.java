@@ -1,4 +1,4 @@
-package hw11;
+package src;
 import java.util.*;
 
 public class Collector {
