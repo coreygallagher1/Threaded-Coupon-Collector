@@ -1,7 +1,7 @@
 package src;
 
 public class SynchronizedCollector extends Collector implements Runnable {
-	static Thread t[];
+	static Thread t[]= new Thread[n];
 
 	public SynchronizedCollector(int trials) {
 		super(trials);
