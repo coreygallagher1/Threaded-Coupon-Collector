@@ -5,7 +5,7 @@ public class Collector {
 	
 	protected static final int TOTALTRIALS = 10000000;
 	protected static final int MAXFREQ = 600;
-	private static int n;
+	protected static int n;
 	private static int trials;
 	
 	// HashMap where the key is the coupon and the value is the number of occurrences
