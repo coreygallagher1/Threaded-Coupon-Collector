@@ -5,7 +5,11 @@ public class Collector {
 	
 	protected static final int TOTALTRIALS = 10000000;
 	protected static final int MAXFREQ = 600;
-	protected static int n = 2;
+	protected static int n = 2; // n is going to be a commandline input
+								// javac SynchronizedCollector.java
+								// java SynchronizedCollector 8 where 8 is n
+								// this is stored in args[0]. Need to implement this
+
 	protected static int trials;
 	protected static int freq[] = new int[MAXFREQ];
 	//protected static int sumFreq;
@@ -24,8 +28,8 @@ public class Collector {
 	protected int drawCoupon() { // returns random integer 0-15
 
 		Random rand = new Random();
-		int upperbound = 16;
-		int int_random = rand.nextInt(upperbound);
+		final int UPPERBOUND = 16;
+		int int_random = rand.nextInt(UPPERBOUND);
 		
 		return int_random;
 	}
