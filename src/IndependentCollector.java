@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class IndependentCollector extends Collector implements Runnable {
 	static Thread[] threads;
 	Object lock = new Object();
-	ArrayList<int[]> freqCollection= new ArrayList<int[]>();
+	static ArrayList<int[]> freqCollection= new ArrayList<int[]>();
 
 	public IndependentCollector(int trials) {
 		super(trials);
@@ -33,6 +33,11 @@ public class IndependentCollector extends Collector implements Runnable {
 			}
 		}
 
+		// Adding all of the arrays in freqCollection to freq
+		for(int i = 0; i < freqCollection.size(); i++) {
+			addToFreq(freqCollection.get(i));
+		}
+		
 		long duration = System.currentTimeMillis() - startTime;
 		printHist(freq);
 		System.out.println("Sum of frequencies: " + sumFreq(freq));
