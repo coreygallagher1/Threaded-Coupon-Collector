@@ -5,7 +5,7 @@ public class Collector {
 	
 	protected static final int TOTALTRIALS = 10000000;
 	protected static final int MAXFREQ = 600;
-	protected static int n = 2; // n is going to be a commandline input
+	//protected static int n = 2; // n is going to be a commandline input
 								// javac SynchronizedCollector.java
 								// java SynchronizedCollector 8 where 8 is n
 								// this is stored in args[0]. Need to implement this
@@ -22,7 +22,6 @@ public class Collector {
 	
 	public Collector(int trials) {
 		this.trials = trials;
-		
 	}
 	
 	protected int drawCoupon() { // returns random integer 0-15
