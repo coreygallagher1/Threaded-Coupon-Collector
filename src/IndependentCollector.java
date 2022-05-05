@@ -62,9 +62,8 @@ public class IndependentCollector extends Collector implements Runnable {
 			while(!addcoupon(drawCoupon())) {
 				f++;
 			}
-
+			threadFreq[f]++;
 		}
-		threadFreq[f]++;
 		freqCollection.add(threadFreq);
 	}
 
