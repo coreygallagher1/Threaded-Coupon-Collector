@@ -44,22 +44,6 @@ public class SynchronizedCollector extends Collector implements Runnable {
 		System.out.println("Execution time: " + duration + "ms");
 	}
 
-	static public int sumFreq(int f[]) {
-		int sum = 0;
-
-		for(int i = 0; i < f.length; i++) {
-			sum += f[i];
-		}
-		
-		return sum;
-	}
-
-	static public void printHist(int f[]) {
-		for(int i = 0; i < f.length; i++) {
-			System.out.println(f[i]);
-		}
-	}
-
 	@Override
 	public void run() {
 		int f = 0;
