@@ -11,6 +11,12 @@ public class IndependentCollector extends Collector implements Runnable {
 
 	}
 
+	public static void addToFreq(int f[]) {
+		for(int i = 0; i < f.length; i++) {
+			freq[i] += f[i];
+		}
+	}
+
 	@Override
 	public void run() {
 		

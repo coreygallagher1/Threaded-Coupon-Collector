@@ -38,6 +38,7 @@ public class SynchronizedCollector extends Collector implements Runnable {
 		}
 
 		long duration = System.currentTimeMillis() - startTime;
+		printHist(freq);
 		System.out.println("Sum of frequencies: " + sumFreq(freq));
 		System.out.println("Number of threads: " + n);
 		System.out.println("Execution time: " + duration + "ms");
@@ -53,6 +54,12 @@ public class SynchronizedCollector extends Collector implements Runnable {
 		return sum;
 	}
 
+	static public void printHist(int f[]) {
+		for(int i = 0; i < f.length; i++) {
+			System.out.println(f[i]);
+		}
+	}
+
 	@Override
 	public void run() {
 		int f = 0;
@@ -60,8 +67,8 @@ public class SynchronizedCollector extends Collector implements Runnable {
 			while(!addcoupon(drawCoupon())) {
 				f++;
 			}
-			synchronized (lock) { // only one thread at a time will be able to run this 
 
+			synchronized (lock) { // only one thread at a time will be able to run this 
 				//update shared data
 				freq[f]++;
 			}
