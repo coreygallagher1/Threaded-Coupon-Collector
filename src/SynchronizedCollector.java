@@ -48,10 +48,16 @@ public class SynchronizedCollector extends Collector implements Runnable {
 	public void run() {
 		int f = 0;
 		for(int i = 0; i < trials; i++) {
-			while(!addcoupon(drawCoupon())) {
-				f++;
-			}
+			int coupon = drawCoupon();
+			boolean drawn = addcoupon(coupon);
 
+
+			while(!drawn) {
+				f++;
+				coupon = drawCoupon();
+				drawn = addcoupon(coupon);
+			}
+			
 			synchronized (lock) { // only one thread at a time will be able to run this 
 				//update shared data
 				freq[f]++;

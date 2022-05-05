@@ -27,9 +27,9 @@ public class Collector {
 	protected int drawCoupon() { // returns random integer 0-15
 
 		Random rand = new Random();
+		rand.setSeed(System.nanoTime());
 		final int UPPERBOUND = 16;
 		int int_random = rand.nextInt(UPPERBOUND);
-		
 		return int_random;
 	}
 	
