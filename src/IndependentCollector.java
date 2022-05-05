@@ -1,8 +1,11 @@
 package src;
 
+import java.util.ArrayList;
+
 public class IndependentCollector extends Collector implements Runnable {
 	static Thread[] threads;
 	Object lock = new Object();
+	ArrayList<int[]> freqCollection= new ArrayList<int[]>();
 
 	public IndependentCollector(int trials) {
 		super(trials);
@@ -23,6 +26,7 @@ public class IndependentCollector extends Collector implements Runnable {
 		for(int i = 0; i < n; i++){
 			try{
 				threads[i].join();
+				
 			}
 			catch(InterruptedException e){
 				System.out.println("Interrupted Exception Error");
@@ -45,7 +49,18 @@ public class IndependentCollector extends Collector implements Runnable {
 	@Override
 	public void run() {
 		
-		
+		int f = 0;
+		int threadFreq[] = new int[MAXFREQ];
+
+
+		for(int i = 0; i < trials; i++) {
+			while(!addcoupon(drawCoupon())) {
+				f++;
+			}
+
+		}
+		threadFreq[f]++;
+		freqCollection.add(threadFreq);
 	}
 
 }
