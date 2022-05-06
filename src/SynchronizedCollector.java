@@ -54,13 +54,6 @@ public class SynchronizedCollector extends Collector implements Runnable {
 				f++;
 			}
 
-
-			while(!drawn) {
-				f++;
-				coupon = drawCoupon();
-				drawn = addcoupon(coupon);
-			}
-
 			synchronized (lock) { // only one thread at a time will be able to run this
 				//update shared data
 				freq[f]++;
