@@ -47,7 +47,9 @@ public class SynchronizedCollector extends Collector implements Runnable {
 	@Override
 	public void run() {
 		int f = 0;
+
 		for(int i = 0; i < trials; i++) {
+			seenCoupons.clear();
 			while(!addcoupon(drawCoupon())) {
 				f++;
 			}
@@ -56,6 +58,9 @@ public class SynchronizedCollector extends Collector implements Runnable {
 				//update shared data
 				freq[f]++;
 			}
+			
+			seenCoupons.clear();
+			f = 0;
 		}
 	}
 

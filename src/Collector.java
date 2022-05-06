@@ -15,7 +15,7 @@ public class Collector {
 	//protected static int sumFreq;
 
 	// HashMap where the key is the coupon and the value is the number of occurrences
-	private HashMap<Integer, Integer> seenCoupons = new HashMap<>();
+	protected HashMap<Integer, Integer> seenCoupons = new HashMap<>();
 	
 	
 	
@@ -27,6 +27,8 @@ public class Collector {
 	protected int drawCoupon() { // returns random integer 0-15
 
 		Random rand = new Random();
+		//rand.setSeed(System.currentTimeMillis());
+
 		final int UPPERBOUND = 16;
 		int int_random = rand.nextInt(UPPERBOUND);
 		
