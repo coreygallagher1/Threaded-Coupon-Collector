@@ -3,7 +3,7 @@ package src;
 public class SynchronizedCollector extends Collector implements Runnable {
 	static Thread[] threads;
 	Object lock = new Object();
-	
+
 	public SynchronizedCollector(int trials) {
 		super(trials);
 		//...
@@ -22,7 +22,7 @@ public class SynchronizedCollector extends Collector implements Runnable {
 		threads = new Thread[n];
 
 		long startTime = System.currentTimeMillis();
-		
+
 		for(int i = 0; i < n; i++) {
 			threads[i] = new Thread(new SynchronizedCollector(t));
 			threads[i].start();
@@ -54,11 +54,18 @@ public class SynchronizedCollector extends Collector implements Runnable {
 				f++;
 			}
 
-			synchronized (lock) { // only one thread at a time will be able to run this 
+
+			while(!drawn) {
+				f++;
+				coupon = drawCoupon();
+				drawn = addcoupon(coupon);
+			}
+
+			synchronized (lock) { // only one thread at a time will be able to run this
 				//update shared data
 				freq[f]++;
 			}
-			
+
 			seenCoupons.clear();
 			f = 0;
 		}
