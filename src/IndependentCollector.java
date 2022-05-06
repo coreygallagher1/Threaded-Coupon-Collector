@@ -12,10 +12,11 @@ public class IndependentCollector extends Collector implements Runnable {
 	}
 
 	public static void main(String[] args) {
-		int n = 4;
+		int n = Integer.valueOf(args[0]);
+
 		int t = TOTALTRIALS / n;					// number of trials
 		threads = new Thread[n];
-
+		System.out.println("Starting IndependentCollector");
 		long startTime = System.currentTimeMillis();
 		
 		for(int i = 0; i < n; i++) {

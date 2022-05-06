@@ -20,7 +20,7 @@ public class SynchronizedCollector extends Collector implements Runnable {
 		int n = 4;
 		int t = TOTALTRIALS / n;					// number of trials
 		threads = new Thread[n];
-
+		System.out.println("Starting Synchronized Collector");
 		long startTime = System.currentTimeMillis();
 
 		for(int i = 0; i < n; i++) {
