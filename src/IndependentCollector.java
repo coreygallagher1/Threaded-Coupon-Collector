@@ -59,17 +59,15 @@ public class IndependentCollector extends Collector implements Runnable {
 
 
 		for(int i = 0; i < trials; i++) {
-			int coupon = drawCoupon();
-			boolean drawn = addcoupon(coupon);
+			seenCoupons.clear();
 
-
-			while(!drawn) {
+			while(!addcoupon(drawCoupon())) {
 				f++;
-				coupon = drawCoupon();
-				drawn = addcoupon(coupon);
 			}
 
 			threadFreq[f]++;
+			seenCoupons.clear();
+			f = 0;
 		}
 		freqCollection.add(threadFreq);
 	}
