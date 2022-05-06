@@ -10,15 +10,9 @@ public class SynchronizedCollector extends Collector implements Runnable {
 	}
 
 	public static void main(String[] args) {
-		//-> both main methods should be very similar
-		//create thread objects
-		//start all threads
-		//join all threads
-		//printing -> the independent version will be different
-
-		//int n = Integer.parseInt(args[0]);		// n taken from args (user input)
-		int n = 4;
-		int t = TOTALTRIALS / n;					// number of trials
+		
+		int n = Integer.valueOf(args[0]);
+		int t = TOTALTRIALS / n;				
 		threads = new Thread[n];
 		System.out.println("Starting Synchronized Collector");
 		long startTime = System.currentTimeMillis();
